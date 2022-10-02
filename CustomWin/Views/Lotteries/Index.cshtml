@@ -1,0 +1,57 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+@model IEnumerable<Lottery>
+@{
+    ViewData["Title"] = "List of Lotteries";
+}
+
+
+<div class="row">
+    @foreach (var item in Model)
+    {
+        <div class="col-md-4 col-xs-6 border-primary mb-3">
+            <div class="card mb-3" style="max-width: 500px;">
+                <div class="row g-0">
+                    <div class="col-md-12">
+                        <div class=" card-header text-white bg-info">
+                            <p class=" card-text">
+                                <h5 class="card-title">
+                                    @item.Name
+                                    <a class=" text-white float-right"><i class="bi bi-pencil-square"></i></a>
+                                </h5>
+                            </p>
+                        </div>
+                    </div>
+                    <div class="col-md-6"><img src="@item.LottoSignature"width="100%"alt="@item.Name" /></div>
+                </div>
+                <div class="col-md-6">
+                    <div class="card-body">
+                        <p class=" card-text">@item.Prizes</p>
+                        @*  <p class="card-text"><b>Last Winner: </b> @item.WinnerFirstName </p>*@
+                        <p class="card-text"><b>Categery:  </b> @item.LottoCategory</p>
+                        <p class="card-text"><b>Dram Date: </b>@item.DrawDate</p>
+                        <p class="card-text">
+                            <b>Countdown: </b>
+                            @*if(DateTime.Now )*@
+                            <span class="badge bg-success text-white">00:00:00</span>
+                        </p>
+                    </div>
+                </div>
+                <div class="col-md-12">
+                    <div class="card-footer">
+                        <div class="card-footer">
+                            <p class="card-text">
+                                <a class="btn btn-outline-primary float-right"><i class="bi bi-eye-fill"></i>Show Detail</a>
+                                <a class="btn btn-success text-white"><i class="bi bi-cart=plus"></i>Buy (ETB50.00)</a>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    }
+
+</div>
